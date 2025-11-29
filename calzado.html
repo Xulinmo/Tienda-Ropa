@@ -1,0 +1,263 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS´s/Encabezadp.css">
+    <link rel="stylesheet" href="/CSS´s/mujer-hombre.css">
+    <title>Buena Pinta - Calzado</title>
+</head>
+<body>
+    <header class="cabezera">
+        <div class="cabezera_interior">
+            <a href="index.html" class="logo">BUENA PINTA</a>
+            <nav>
+                <ul class="menu" id="Menu">
+                    <li><a href="hombre.html">HOMBRE</a></li>
+                    <li><a href="mujer.html">MUJER</a></li>
+                    <li><a href="calzado.html">CALZADO</a></li>
+                    <li><a href="accesorios.html">ACCESORIOS</a></li>
+                    <li><a href="ofertas.html">OFERTAS</a></li>
+                </ul>
+            </nav>
+            <div class="icon">
+                <div class="search-wrapper" id="searchWrapper">
+                    <input type="search" placeholder="Buscar..." class="search-expand" id="searchInput"autocomplete="off"/>
+                    <button class="search-btn" id="searchBtn" aria-label="BUSCAR">
+                        <img src="/Imagenes/loupe.png" alt="Buscar" class="icon-img">
+                    </button>
+                    <div class="search-suggestions" id="searchSuggestions"></div>
+                </div>
+                <a href="favoritos.html">
+                    <button class="icon-btn" aria-label="FAVORITO">
+                        <img src="/Imagenes/love.png" alt="Favorito" class="icon-img">
+                        <span class="fav-contador">0</span>
+                    </button>
+                </a>
+                <a href="carritorumrum.html">
+                    <button class="icon-btn" aria-label="CARRITO">
+                        <img src="/Imagenes/trolley.png" alt="Carrito" class="icon-img">
+                        <span class="cart-contador">0</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="catalogo">
+        <aside class="barraFiltros">
+            <div class="filtros">
+                <h3>HOMBRE</h3>
+                <div class="opciones">
+                    <input type="checkbox" id="39">
+                    <label for="39">39</label>
+                </div>
+                <div class="opciones">
+                    <input type="checkbox" id="40">
+                    <label for="40">40</label>
+                </div>
+                <div class="opciones">
+                    <input type="checkbox" id="41">
+                    <label for="41">41</label>
+                </div>
+                <div class="opciones">
+                    <input type="checkbox" id="42">
+                    <label for="42">42</label>
+                </div>
+                <div class="opciones">
+                    <input type="checkbox" id="43">
+                    <label for="43">43</label>
+                </div>
+            </div>
+            <div class="filtros">
+                <h3>MUJER</h3>
+                <div class="opciones">
+                    <input type="checkbox" id="35">
+                    <label for="35">35</label>
+                </div>
+                <div class="opciones">
+                    <input type="checkbox" id="36">
+                    <label for="36">36</label>
+                </div>
+                <div class="opciones">
+                    <input type="checkbox" id="37">
+                    <label for="37">37</label>
+                </div>
+                <div class="opciones">
+                    <input type="checkbox" id="38">
+                    <label for="38">38</label>
+                </div>
+                <div class="opciones">
+                    <input type="checkbox" id="39">
+                    <label for="39">39</label>
+                </div>
+            </div>
+            <div class="filtros">
+                <h3>PRECIO</h3>
+                <div class="rango">
+                    <input type="number" placeholder="Min" value="0">
+                    <input type="number" placeholder="Max" value="200">
+                </div>
+            </div>
+            <button class="btnFiltro">APLICAR FILTROS</button>
+        </aside>
+
+        <div class="contenidoC">
+            <div class="cabezaa">
+                <div>
+                    <h1 class="titulosC">CALZADO HOMBRE Y MUJER</h1>
+                    <p class="infoPS">9 Productos</p>
+                </div>
+            </div>
+            <div class="products-grid">
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="/Imagenes/Productos/zapatillass.jpg" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="/Imagenes/Productos/zapatillas.jpg" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="21">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Zapatillas “VL Court” Mujer</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 229</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="/Imagenes/Productos/alpargatas.jpg" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="/Imagenes/Productos/alpargatass.jpg" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="22">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Alpargatas Casual Mujer</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 139.50</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="/Imagenes/Productos/outdoor.jpg" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="/Imagenes/Productos/outdoorr.jpg" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="23">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Zapatillas Outdoor Mujer</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 69.90</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="/Imagenes/Productos/running.jpg" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="/Imagenes/Productos/runningg.jpg" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="24">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Zapatillas Running Mujer</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 199</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="/Imagenes/Productos/cuero.jpg" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="/Imagenes/Productos/cueroo.jpg" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="25">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Tenis Cuero Mujer</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 164.90</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="/Imagenes/Productos/basicas.jpg" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="/Imagenes/Productos/basicass.jpg" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="26">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Zapatillas Basicas Hombre</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 180</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="/Imagenes/Productos/derby.jpg" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="/Imagenes/Productos/derbyy.jpg" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="27">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Zapatos Derby Piel Hombre</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 220</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="/Imagenes/Productos/combat.jpg" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="/Imagenes/Productos/combatt.jpg" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="28">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Botas Estilo "Combat"</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 260</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="/Imagenes/Productos/mocasin.jpg" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="/Imagenes/Productos/mocasinn.jpg" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="29">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Mocasines de Cuero Hombre</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 210</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                </div>
+    </div>
+    <script src="/JS´s/cuerpo.js"></script>
+    <script src="/JS´s/calzado.js"></script>
+    <script src="/JS´s/favoritos.js"></script>
+    <script src="/JS´s/carrito.js"></script>
+</body>
+</html>
