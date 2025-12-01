@@ -1,0 +1,256 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/Encabezadp.css">
+    <link rel="stylesheet" href="CSS/mujer-hombre.css">
+    <title>Buena Pinta - Accesorios</title>
+</head>
+<body> 
+    <header class="cabezera">
+        <div class="cabezera_interior">
+            <a href="index.html" class="logo">BUENA PINTA</a>
+            <nav>
+                <ul class="menu" id="Menu">
+                    <li><a href="hombre.html">HOMBRE</a></li>
+                    <li><a href="mujer.html">MUJER</a></li>
+                    <li><a href="calzado.html">CALZADO</a></li>
+                    <li><a href="accesorios.html">ACCESORIOS</a></li>
+                    <li><a href="ofertas.html">OFERTAS</a></li>
+                </ul>
+            </nav>
+            <div class="icon">
+                <div class="search-wrapper" id="searchWrapper">
+                    <input type="search" placeholder="Buscar..." class="search-expand" id="searchInput"autocomplete="off"/>
+                    <button class="search-btn" id="searchBtn" aria-label="BUSCAR">
+                        <img src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439155/loupe_mc4zt0.png" alt="Buscar" class="icon-img">
+                    </button>
+                    <div class="search-suggestions" id="searchSuggestions"></div>
+                </div>
+                <a href="favoritos.html">
+                    <button class="icon-btn" aria-label="FAVORITO">
+                        <img src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439156/love_s7umec.png" alt="Favorito" class="icon-img">
+                        <span class="fav-contador">0</span>
+                    </button>
+                </a>
+                <a href="carritorumrum.html">
+                    <button class="icon-btn" aria-label="CARRITO">
+                        <img src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439157/trolley_s9w5sz.png" alt="Carrito" class="icon-img">
+                        <span class="cart-contador">0</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="catalogo">
+        <aside class="barraFiltros">
+            <div class="filtros">
+                <h3>CATEGORIA</h3>
+                <div class="opciones">
+                    <input type="checkbox" id="relojes">
+                    <label for="relojes">Relojes</label>
+                </div>
+                <div class="opciones">
+                    <input type="checkbox" id="carteras">
+                    <label for="carteras">Carteras</label>
+                </div>
+                <div class="opciones">
+                    <input type="checkbox" id="lentes">
+                    <label for="lentes">Lentes de sol</label>
+                </div>
+                <div class="opciones">
+                    <input type="checkbox" id="anillos">
+                    <label for="anillos">Anillos</label>
+                </div>
+                <div class="opciones">
+                    <input type="checkbox" id="sombreros">
+                    <label for="sombreros">Sombreros</label>
+                </div>
+                <div class="opciones">
+                    <input type="checkbox" id="pañuelos">
+                    <label for="pañuelos">Pañuelos</label>
+                </div>
+            </div>
+            <button class="btnFiltro">APLICAR FILTROS</button>
+        </aside>
+
+        <div class="contenidoC">
+            <div class="cabezaa">
+                <div>
+                    <h1 class="titulosC">ACCESORIOS</h1>
+                    <p class="infoPS">10 Productos</p>
+                </div>
+            </div>
+            <div class="products-grid">
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439058/cuadrado_ddnwdr.webp" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439061/cuadradoo_xex72v.jpg" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="7">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Gafas de sol cuadradas</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 120</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439128/reloj_vitutp.jpg" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439128/relojj_rkkzlk.webp" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="8">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Reloj de pulsera acero inox</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 229</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439098/malla_ufnrrh.jpg" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439101/mallaa_tgjhgj.webp" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="9">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Reloj pulsera malla metálica</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 189</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439035/cartera_jgq6h4.webp" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439036/carteraa_gpxrcd.webp" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="10">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Cartera de dos asas Lya</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 99.90</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764438997/amaraa_hfazcw.jpg" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764438997/amaraa_hfazcw.jpg" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="1">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Cartera Amara</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 134.50</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439053/cinturon_vqurva.webp" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439053/cinturonn_b08evs.jpg" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="2">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Cinturón de cuero hombre</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 169</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439046/cerezaa_mwjvug.webp" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439042/cereza_caixbs.jpg" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="3">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Bucket hat reversible cereza</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 39.90</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439096/lentes_wh4r8y.webp" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439097/lentess_pqtpbq.jpg" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="4">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Lentes de sol rectangulares negro</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 34.90</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764438998/anillos_gp4zd0.webp" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439002/anilloss_ew5aev.webp" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="5">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Set de anillos frutales dorados</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 16.90</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439119/pa%C3%B1ueloo_jqzumu.jpg" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439116/pa%C3%B1uelo_mzspkr.jpg" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="9">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Pañuelo de seda</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 660</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                </div>
+    </div>
+    <script src="JS/cuerpo.js"></script>
+    <script src="JS/accesorios.js"></script>
+    <script src="JS/favoritos.js"></script>
+    <script src="JS/carrito.js"></script>
+    <script src="JS/productos.js"></script>
+</body>
+
+</html>
+

@@ -1,0 +1,283 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/Encabezadp.css">
+    <link rel="stylesheet" href="CSS/mujer-hombre.css">
+    <title>Buena Pinta - Mujer</title>
+</head>
+<body>
+    <header class="cabezera">
+        <div class="cabezera_interior">
+            <a href="index.html" class="logo">BUENA PINTA</a>
+            <nav>
+                <ul class="menu" id="Menu">
+                    <li><a href="hombre.html">HOMBRE</a></li>
+                    <li><a href="mujer.html">MUJER</a></li>
+                    <li><a href="calzado.html">CALZADO</a></li>
+                    <li><a href="accesorios.html">ACCESORIOS</a></li>
+                    <li><a href="ofertas.html">OFERTAS</a></li>
+                </ul>
+            </nav>
+            <div class="icon">
+                <div class="search-wrapper" id="searchWrapper">
+                    <input type="search" placeholder="Buscar..." class="search-expand" id="searchInput"autocomplete="off"/>
+                    <button class="search-btn" id="searchBtn" aria-label="BUSCAR">
+                        <img src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439155/loupe_mc4zt0.png" alt="Buscar" class="icon-img">
+                    </button>
+                    <div class="search-suggestions" id="searchSuggestions"></div>
+                </div>
+                <a href="favoritos.html">
+                    <button class="icon-btn" aria-label="FAVORITO">
+                        <img src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439156/love_s7umec.png" alt="Favorito" class="icon-img">
+                        <span class="fav-contador">0</span>
+                    </button>
+                </a>
+                <a href="carritorumrum.html">
+                    <button class="icon-btn" aria-label="CARRITO">
+                        <img src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439157/trolley_s9w5sz.png" alt="Carrito" class="icon-img">
+                        <span class="cart-contador">0</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="catalogo">
+        <aside class="barraFiltros">
+            <div class="filtros">
+                <h3>CATEGORIA</h3>
+                <div class="opciones">
+                    <input type="checkbox" id="pantalones">
+                    <label for="pantalones">Pantalones</label>
+                </div>
+                <div class="opciones">
+                    <input type="checkbox" id="jeans">
+                    <label for="jeans">Jeans</label>
+                </div>
+                <div class="opciones">
+                    <input type="checkbox" id="vestidos">
+                    <label for="vestidos">Vestidos</label>
+                </div>
+                <div class="opciones">
+                    <input type="checkbox" id="blusas">
+                    <label for="blusas">Blusas</label>
+                </div>
+                <div class="opciones">
+                    <input type="checkbox" id="faldas">
+                    <label for="faldas">Faldas</label>
+                </div>
+            </div>
+            <div class="filtros">
+                <h3>TALLA</h3>
+                <div class="opciones">
+                    <input type="checkbox" id="xs">
+                    <label for="xs">XS</label>
+                </div>
+                <div class="opciones">
+                    <input type="checkbox" id="s">
+                    <label for="s">S</label>
+                </div>
+                <div class="opciones">
+                    <input type="checkbox" id="m">
+                    <label for="m">M</label>
+                </div>
+                <div class="opciones">
+                    <input type="checkbox" id="l">
+                    <label for="l">L</label>
+                </div>
+                <div class="opciones">
+                    <input type="checkbox" id="xl">
+                    <label for="xl">XL</label>
+                </div>
+            </div>
+            <div class="filtros">
+                <h3>PRECIO</h3>
+                <div class="rango">
+                    <input type="number" placeholder="Min" value="0">
+                    <input type="number" placeholder="Max" value="200">
+                </div>
+            </div>
+            <button class="btnFiltro">APLICAR FILTROS</button>
+        </aside>
+
+        <div class="contenidoC">
+            <div class="cabezaa">
+                <div>
+                    <h1 class="titulosC">ROPA DE MUJER</h1>
+                    <p class="infoPS">10 Productos</p>
+                </div>
+            </div>
+            <div class="products-grid">
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439081/FALDA_LAPIZ_zjk5mr.jpg" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439073/FaldaLapiz_lkboqm.jpg" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="4">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Falda Lapiz de Punto Elastico</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 39.90</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439108/Pantalon_recto_rjcvsg.webp" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439115/pantalonRectoo_u9szti.webp" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="5">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Pantalon Bota Recta</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 159.90</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439009/blusaBlanca_jbrw0b.jpg" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439009/blusaBlanca_jbrw0b.jpg" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="6">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Blusa Manga Corta</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 59.90</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439070/faldadenim_hzcbbs.webp" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439070/faldadenim_hzcbbs.webp" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="7">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Falda Denim</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 149.90</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439092/jeanskinnyy_flqqig.webp" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439092/jeanskinnyy_flqqig.webp" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="8">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Jean Skinny</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 89.90</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439137/vestidobeige_kmtdwr.webp" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439137/vestidobeige_kmtdwr.webp" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="9">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Vestido Midi</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 129.90</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439011/blusanegra_q06yk4.jpg" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439011/blusanegra_q06yk4.jpg" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="10">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Blusa Satinada</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 79.90</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439110/pantaloncargo_enn2hm.webp" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439110/pantaloncargo_enn2hm.webp" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="8">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Pantalon Cargo</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 99.90</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439079/faldaverde_bkqbmc.jpg" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439079/faldaverde_bkqbmc.jpg" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="9">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Falda Plisada</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 69.90</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-images">
+                        <img class="img-primary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439140/vestidofloral_p1r5q9.webp" alt="Jogger Wide Leg">
+                        <img class="img-secondary" src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439140/vestidofloral_p1r5q9.webp" alt="Jogger Wide Leg">
+                        <button class="fav-btn" data-id="10">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Vestido Corto</h3>
+                        <div class="product-prices">
+                            <span class="price-current">S/ 99.90</span>
+                        </div>
+                        <button class="btnFiltro">COMPRAR</button>
+                    </div>
+                </article>
+                </div>
+    </div>
+    <script src="JS/cuerpo.js"></script>
+    <script src="JS/mujer.js"></script>
+    <script src="JS/favoritos.js"></script>
+    <script src="JS/carrito.js"></script>
+    <script src="JS/productos.js"></script>
+</body>
+
+</html>
+
+

@@ -1,0 +1,634 @@
+
+/*CAMBIO DE IMAGENES*/
+#galeria {
+    width: 100%;
+    height: 570px;
+    position: relative;
+    overflow: hidden;
+}
+
+.obj-galeria {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 700px;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.obj-galeria.active {
+    opacity: 1;
+}
+
+.obj-galeria img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cambio {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.botones {
+    background: rgba(0,0,0,0.4);
+    border: none;
+    font-size: 40px;
+    padding: 10px 15px;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+    transition: 0.3s;
+}
+
+.botones:hover {
+    background: rgba(0,0,0,0.7);
+}
+/* CATEGORIAS */
+.categoria {
+    max-width: 1400px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+.titulosCateg {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.ordenCateg {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+.cardCateg {
+    position: relative;
+    overflow:hidden;
+    height: 570px;
+    width: 400px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.cardCateg:hover {
+    transform: translateY(-5px);
+}
+.cardCateg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+.cardCateg:hover img {
+    transform: scale(1.05);
+}
+.nombreCateg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px 20px;
+    background: linear-gradient(to top, rgba(105, 105, 105, 0.7), transparent);
+    color: rgb(255, 208, 122);
+    font-size: 20px;
+    text-align: center;
+}
+.nombreCateg h3 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+/*NUESTRA TIENDA*/
+
+.sobre-nosotros {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.titulo-seccion {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.titulo-seccion h2 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.titulo-seccion .linea-decorativa {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+.contenido-sobre {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 50px;
+    justify-content: center;
+}
+
+.card-info {
+    flex: 0 1 calc(33.333% - 20px);
+    min-width: 300px;
+    max-width: 380px;
+}
+
+.card-info {
+    background: white;
+    border-radius: 15px;
+    padding: 40px 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+}
+
+.card-info:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-info .icono {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.card-info.mision .icono {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.card-info.vision .icono {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.card-info.valores .icono {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.card-info h3 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.card-info p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.valores-lista {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.valores-lista li {
+    padding: 10px 0;
+    color: #555;
+    position: relative;
+    padding-left: 25px;
+}
+
+.valores-lista li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #43e97b;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.historia-seccion {
+    background: white;
+    border-radius: 15px;
+    padding: 50px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.historia-seccion h3 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.historia-seccion p {
+    color: #555;
+    line-height: 1.9;
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* BANNER PROMOCIONAL */
+.banner {
+    background: linear-gradient(135deg, #667eea, 0%, #764ba2 100%);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    margin: 60px 0;
+    max-width: 100%;
+
+    background:
+        linear-gradient(135deg, rgba(102,126,234,0.6), rgba(118,75,162,0.6)),
+        url('https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439162/woman-in-white-dress-outside_gale81.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.banner h2 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.banner p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.btnPromo {
+    background: white;
+    color: #667eea;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.btnPromo:hover {
+    transform: scale(1.05);
+}
+
+/*PIE DE PAGINA*/
+.pie {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 40px 20px;
+}
+
+.pieInt {
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.pieInt h4 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #ccc;
+}
+
+/*RESPONSIVE*/
+
+/* LAPTOP (1280px) */
+@media (max-width: 1280px) {
+    #galeria {
+        height: 500px;
+    }
+    
+    .obj-galeria {
+        height: 500px;
+    }
+    
+    .categoria,
+    .productos {
+        max-width: 1200px;
+    }
+    
+    .ordenCateg {
+        gap: 15px;
+    }
+    
+    .cardCateg {
+        height: 500px;
+        width: 100%;
+    }
+    
+    .ordenProduc {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+}
+
+/* TABLET (768px - 1024px) */
+@media (max-width: 1024px) {
+    #galeria {
+        height: 400px;
+    }
+    
+    .obj-galeria {
+        height: 400px;
+    }
+    
+    .botones {
+        font-size: 30px;
+        padding: 8px 12px;
+    }
+    
+    .ordenCateg {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .cardCateg {
+        height: 450px;
+    }
+    
+    .titulosCateg {
+        font-size: 28px;
+    }
+    
+    .ordenProduc {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    .imgProduc {
+        height: 320px;
+    }
+    
+    .banner h2 {
+        font-size: 36px;
+    }
+    
+    .banner p {
+        font-size: 18px;
+    }
+
+    .sobre-nosotros {
+        padding: 0 30px;
+    }
+
+    .titulo-seccion h2 {
+        font-size: 2.2rem;
+    }
+
+    .contenido-sobre {
+        gap: 25px;
+    }
+
+    .card-info {
+        flex: 0 1 calc(50% - 15px);
+        min-width: 280px;
+    }
+
+    .card-info:last-child {
+        flex: 0 1 calc(50% - 15px);
+    }
+
+    .historia-seccion {
+        padding: 40px 30px;
+    }
+
+    .historia-seccion h3 {
+        font-size: 1.8rem;
+    }
+
+    .historia-seccion p {
+        font-size: 1.05rem;
+    }
+}
+
+/* MOBILE (320px - 767px) */
+@media (max-width: 767px) {
+    #galeria {
+        height: 300px;
+    }
+    
+    .obj-galeria {
+        height: 300px;
+    }
+    
+    .botones {
+        font-size: 24px;
+        padding: 6px 10px;
+    }
+    
+    .categoria,
+    .productos {
+        margin: 40px auto;
+        padding: 0 15px;
+    }
+    
+    .titulosCateg {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .ordenCateg {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .cardCateg {
+        height: 400px;
+        width: 100%;
+    }
+    
+    .nombreCateg h3 {
+        font-size: 20px;
+    }
+    
+    .ordenProduc {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .imgProduc {
+        height: 200px;
+    }
+    
+    .nameP {
+        font-size: 14px;
+    }
+    
+    .producto-precio {
+        font-size: 16px;
+    }
+    
+    .banner {
+        padding: 50px 15px;
+    }
+    
+    .banner h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+    
+    .banner p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .btnPromo {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+
+    .sobre-nosotros {
+        margin: 40px auto;
+        padding: 0 15px;
+    }
+
+    .titulo-seccion {
+        margin-bottom: 35px;
+    }
+
+    .titulo-seccion h2 {
+        font-size: 1.8rem;
+    }
+
+    .contenido-sobre {
+        gap: 20px;
+    }
+
+    .card-info {
+        flex: 1 1 100%;
+        padding: 30px 20px;
+        min-width: auto;
+    }
+
+    .card-info .icono {
+        width: 55px;
+        height: 55px;
+        font-size: 1.3rem;
+    }
+
+    .card-info h3 {
+        font-size: 1.5rem;
+    }
+
+    .card-info p {
+        font-size: 0.95rem;
+    }
+
+    .valores-lista li {
+        font-size: 0.95rem;
+        padding: 8px 0;
+    }
+
+    .historia-seccion {
+        padding: 30px 20px;
+    }
+
+    .historia-seccion h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .historia-seccion p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+}
+
+/* MOBILE PEQUEÑO (320px) */
+@media (max-width: 480px) {
+    .ordenProduc {
+        grid-template-columns: 1fr;
+    }
+    
+    .imgProduc {
+        height: 280px;
+    }
+    .sobre-nosotros {
+        margin: 30px auto;
+        padding: 0 10px;
+    }
+
+    .titulo-seccion h2 {
+        font-size: 1.5rem;
+    }
+
+    .titulo-seccion .linea-decorativa {
+        width: 60px;
+        height: 3px;
+    }
+
+    .contenido-sobre {
+        gap: 15px;
+    }
+
+    .card-info {
+        padding: 25px 15px;
+    }
+
+    .card-info .icono {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    .card-info h3 {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+    }
+
+    .card-info p {
+        font-size: 0.9rem;
+    }
+
+    .valores-lista li {
+        font-size: 0.9rem;
+        padding: 7px 0;
+        padding-left: 20px;
+    }
+
+    .valores-lista li::before {
+        font-size: 1rem;
+    }
+
+    .historia-seccion {
+        padding: 25px 15px;
+        margin-top: 20px;
+    }
+
+    .historia-seccion h3 {
+        font-size: 1.3rem;
+    }
+
+    .historia-seccion p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+}
+
+

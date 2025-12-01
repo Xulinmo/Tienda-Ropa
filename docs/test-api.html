@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test API - Carrito</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .success {
+            color: #27ae60;
+        }
+        .error {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test API - Sistema de Carrito</h1>
+    
+    <div>
+        <h2>Probar Endpoints</h2>
+        <button onclick="testGetProducts()">GET /api/products</button>
+        <button onclick="testGetCart()">GET /api/cart</button>
+        <button onclick="testAddToCart()">POST /api/cart (Agregar producto 1)</button>
+        <button onclick="testAddToCart2()">POST /api/cart (Agregar producto 2)</button>
+        <button onclick="testHealth()">GET /api/health</button>
+    </div>
+    
+    <div id="resultado">
+        <h3>Resultado:</h3>
+        <pre id="output">Haz clic en un botón para probar...</pre>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:3000/api';
+        const USER_ID = 1;
+
+        function mostrar(data, tipo = 'success') {
+            const output = document.getElementById('output');
+            output.className = tipo;
+            output.textContent = JSON.stringify(data, null, 2);
+        }
+
+        async function testHealth() {
+            try {
+                const response = await fetch(`${API_URL}/health`);
+                const data = await response.json();
+                mostrar(data);
+            } catch (error) {
+                mostrar({ error: error.message }, 'error');
+            }
+        }
+
+        async function testGetProducts() {
+            try {
+                const response = await fetch(`${API_URL}/products`);
+                const data = await response.json();
+                mostrar(data);
+            } catch (error) {
+                mostrar({ error: error.message }, 'error');
+            }
+        }
+
+        async function testGetCart() {
+            try {
+                const response = await fetch(`${API_URL}/cart?user_id=${USER_ID}`);
+                const data = await response.json();
+                mostrar(data);
+            } catch (error) {
+                mostrar({ error: error.message }, 'error');
+            }
+        }
+
+        async function testAddToCart() {
+            try {
+                const response = await fetch(`${API_URL}/cart`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        user_id: USER_ID,
+                        product_id: 1,
+                        quantity: 1
+                    })
+                });
+                const data = await response.json();
+                mostrar(data);
+            } catch (error) {
+                mostrar({ error: error.message }, 'error');
+            }
+        }
+
+        async function testAddToCart2() {
+            try {
+                const response = await fetch(`${API_URL}/cart`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        user_id: USER_ID,
+                        product_id: 2,
+                        quantity: 1
+                    })
+                });
+                const data = await response.json();
+                mostrar(data);
+            } catch (error) {
+                mostrar({ error: error.message }, 'error');
+            }
+        }
+    </script>
+</body>
+</html>
