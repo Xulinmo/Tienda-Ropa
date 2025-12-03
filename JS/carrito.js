@@ -481,11 +481,7 @@ async function procesarCompra() {
     
     const total = await calcularTotal();
     
-    // Confirmar compra
-    if (!confirm(`¿Confirmar compra por S/ ${total.toFixed(2)}?`)) {
-        return;
-    }
-    
+        
     try {
         const userId = getUserId();
         const response = await fetch(`${API_URL}/purchase`, {
