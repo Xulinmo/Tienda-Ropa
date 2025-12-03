@@ -1,5 +1,5 @@
 // API URL
-const API_URL = 'http://localhost:3000/api';
+const API_URL = 'https://tienda-ropa-production.up.railway.app/api';
 
 // Verificar si el usuario está logueado
 function isUserLoggedIn() {

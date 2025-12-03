@@ -30,7 +30,7 @@ async function cargarYRenderizarProductos() {
         grid.innerHTML = '<div class="loading" style="grid-column: 1/-1; text-align: center; padding: 40px; font-size: 18px;">Cargando productos...</div>';
         
         // Obtener productos de la API
-        const response = await fetch('http://localhost:3000/api/products');
+        const response = await fetch('https://tienda-ropa-production.up.railway.app/api/products');
         if (!response.ok) throw new Error('Error al cargar productos');
         
         const todosLosProductos = await response.json();

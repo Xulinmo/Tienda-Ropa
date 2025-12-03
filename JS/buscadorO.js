@@ -4,7 +4,7 @@ let productos = [];
 // Cargar productos desde la API
 async function cargarProductosParaBusqueda() {
     try {
-        const response = await fetch('http://localhost:3000/api/products');
+        const response = await fetch('https://tienda-ropa-production.up.railway.app/api/products');
         if (!response.ok) {
             throw new Error('Error al cargar productos');
         }
