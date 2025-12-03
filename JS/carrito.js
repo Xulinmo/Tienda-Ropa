@@ -481,7 +481,53 @@ async function procesarCompra() {
     
     const total = await calcularTotal();
     
-        
+    // Mostrar panel de confirmación personalizado
+    mostrarConfirmacionCompra(total);
+}
+
+// Nueva función: Mostrar panel de confirmación
+function mostrarConfirmacionCompra(total) {
+    const confirmacionHTML = `
+        <div class="compra-confirmacion-overlay" id="confirmacionOverlay">
+            <div class="compra-confirmacion-box">
+                <div class="compra-confirmacion-icon">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                </div>
+                <h2 class="compra-confirmacion-title">¿Confirmar tu compra?</h2>
+                <p class="compra-confirmacion-mensaje">
+                    Total a pagar: <strong style="color: #27ae60; font-size: 24px;">S/ ${total.toFixed(2)}</strong>
+                </p>
+                <p class="compra-confirmacion-submensaje">
+                    ¡Estás a un paso de lucir increíble! 🌟
+                </p>
+                <div class="compra-confirmacion-buttons">
+                    <button class="btn-seguir-comprando" onclick="cerrarConfirmacion()">
+                        Cancelar
+                    </button>
+                    <button class="btn-ver-boleta" onclick="confirmarYProcesar()">
+                        Confirmar Compra
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.insertAdjacentHTML('beforeend', confirmacionHTML);
+}
+
+// Cerrar panel de confirmación
+function cerrarConfirmacion() {
+    const overlay = document.getElementById('confirmacionOverlay');
+    if (overlay) {
+        overlay.style.opacity = '0';
+        setTimeout(() => overlay.remove(), 300);
+    }
+}
+
+// Confirmar y procesar la compra
+async function confirmarYProcesar() {
+    cerrarConfirmacion();
+    
     try {
         const userId = getUserId();
         const response = await fetch(`${API_URL}/purchase`, {
@@ -493,21 +539,21 @@ async function procesarCompra() {
         const data = await response.json();
         
         if (!response.ok) {
-            alert(data.error || 'Error al procesar la compra');
+            // Mostrar error con panel personalizado en lugar de alert
+            mostrarMensajeError(data.error || 'Error al procesar la compra');
             return;
         }
         
         // Obtener nombres del cache localStorage
         const imageCache = JSON.parse(localStorage.getItem('product_images') || '{}');
+        const carrito = await obtenerCarrito();
         
         // Agregar nombres reales del cache a los items de la boleta
         data.items.forEach(item => {
-            // Buscar primero en el cache por product_id
             const cached = imageCache[item.product_id];
             if (cached && cached.nombre) {
                 item.nombreReal = cached.nombre;
             } else {
-                // Si no está en cache, buscar en el carrito actual
                 const itemCarrito = carrito.find(c => c.id == item.product_id);
                 if (itemCarrito) {
                     item.nombreReal = itemCarrito.nombre;
@@ -515,21 +561,108 @@ async function procesarCompra() {
             }
         });
         
-        // Mostrar boleta
-        mostrarBoleta(data);
-        
-        // Actualizar UI
-        await actualizarContadorCarrito();
-        mostrarCarritoVacio();
-        
-        // Recargar productos para actualizar stock
-        if (typeof cargarProductosConStock === 'function') {
-            setTimeout(() => cargarProductosConStock(), 1000);
-        }
+        // Mostrar mensaje de éxito ANTES de la boleta
+        mostrarMensajeExito(data);
         
     } catch (error) {
         console.error('Error procesando compra:', error);
-        alert('Error al procesar la compra. Intenta nuevamente.');
+        mostrarMensajeError('Error al procesar la compra. Intenta nuevamente.');
+    }
+}
+
+// Mostrar mensaje de éxito después de la compra
+function mostrarMensajeExito(data) {
+    const exitoHTML = `
+        <div class="compra-confirmacion-overlay" id="exitoOverlay">
+            <div class="compra-confirmacion-box">
+                <div class="compra-confirmacion-icon">✅</div>
+                <h2 class="compra-confirmacion-title">¡Gracias por tu Compra!</h2>
+                <p class="compra-confirmacion-mensaje">
+                    Tu pedido ha sido procesado exitosamente
+                </p>
+                <p class="compra-confirmacion-submensaje">
+                    ¡Sigue explorando nuestra colección y encuentra más estilos que te encantarán! 🎉
+                </p>
+                <div class="compra-confirmacion-buttons">
+                    <button class="btn-seguir-comprando" onclick="continuarComprando()">
+                        Seguir Comprando
+                    </button>
+                    <button class="btn-ver-boleta" onclick="verBoletaYCerrar(${JSON.stringify(data).replace(/"/g, '&quot;')})">
+                        Ver Boleta
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.insertAdjacentHTML('beforeend', exitoHTML);
+}
+
+// Continuar comprando
+async function continuarComprando() {
+    const overlay = document.getElementById('exitoOverlay');
+    if (overlay) {
+        overlay.style.opacity = '0';
+        setTimeout(() => overlay.remove(), 300);
+    }
+    
+    // Actualizar UI
+    await actualizarContadorCarrito();
+    mostrarCarritoVacio();
+    
+    // Redirigir a la página de productos
+    window.location.href = 'hombre.html';
+}
+
+// Ver boleta y cerrar mensaje de éxito
+async function verBoletaYCerrar(data) {
+    const overlay = document.getElementById('exitoOverlay');
+    if (overlay) {
+        overlay.style.opacity = '0';
+        setTimeout(() => overlay.remove(), 300);
+    }
+    
+    // Mostrar boleta
+    mostrarBoleta(data);
+    
+    // Actualizar UI
+    await actualizarContadorCarrito();
+    mostrarCarritoVacio();
+    
+    // Recargar productos para actualizar stock
+    if (typeof cargarProductosConStock === 'function') {
+        setTimeout(() => cargarProductosConStock(), 1000);
+    }
+}
+
+// Mostrar mensaje de error
+function mostrarMensajeError(mensaje) {
+    const errorHTML = `
+        <div class="compra-confirmacion-overlay" id="errorOverlay">
+            <div class="compra-confirmacion-box">
+                <div class="compra-confirmacion-icon" style="color: #e74c3c;">❌</div>
+                <h2 class="compra-confirmacion-title" style="color: #e74c3c;">Error en la compra</h2>
+                <p class="compra-confirmacion-mensaje">
+                    ${mensaje}
+                </p>
+                <div class="compra-confirmacion-buttons">
+                    <button class="btn-ver-boleta" onclick="cerrarError()" style="background: #e74c3c;">
+                        Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.insertAdjacentHTML('beforeend', errorHTML);
+}
+
+// Cerrar mensaje de error
+function cerrarError() {
+    const overlay = document.getElementById('errorOverlay');
+    if (overlay) {
+        overlay.style.opacity = '0';
+        setTimeout(() => overlay.remove(), 300);
     }
 }
 
