@@ -99,8 +99,9 @@ function crearTarjetaProducto(producto) {
     // Agregar evento al botón de agregar al carrito
     const btnComprar = article.querySelector('.add-to-cart-btn');
     if (btnComprar && typeof agregarAlCarrito === 'function') {
-        btnComprar.addEventListener('click', function() {
-            agregarAlCarrito(producto.id, producto.title, parseFloat(producto.price), imagenPrincipal);
+        btnComprar.addEventListener('click', function(e) {
+            e.preventDefault();
+            agregarAlCarrito(article, btnComprar);
         });
     }
     
