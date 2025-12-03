@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/Encabezadp.css">
+    <link rel="stylesheet" href="CSS/mujer-hombre.css">
+    <link rel="stylesheet" href="CSS/boleta.css">
+    <link rel="stylesheet" href="CSS/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Buena Pinta - Carrito</title>
+</head>
+<body>
+    <header class="cabezera">
+        <div class="cabezera_interior">
+            <a href="index.html" class="logo">BUENA PINTA</a>
+            <nav>
+                <ul class="menu" id="Menu">
+                    <li><a href="hombre.html">HOMBRE</a></li>
+                    <li><a href="mujer.html">MUJER</a></li>
+                    <li><a href="calzado.html">CALZADO</a></li>
+                    <li><a href="accesorios.html">ACCESORIOS</a></li>
+                    <li><a href="ofertas.html">OFERTAS</a></li>
+                </ul>
+            </nav>
+            <div class="icon">
+                <a href="favoritos.html">
+                    <button class="icon-btn" aria-label="FAVORITO">
+                        <img src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439156/love_s7umec.png" alt="Favorito" class="icon-img">
+                        <span class="fav-contador">0</span>
+                    </button>
+                </a>
+                <a href="carritorumrum.html">
+                    <button class="icon-btn" aria-label="CARRITO">
+                        <img src="https://res.cloudinary.com/dbxk9cbjp/image/upload/v1764439157/trolley_s9w5sz.png" alt="Carrito" class="icon-img">
+                        <span class="cart-contador">0</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="carrito-container">
+        <div class="carrito-productos">
+            <h1 style="margin-bottom: 30px; font-size: 28px;">MI CARRITO</h1>
+        </div>
+        <div class="carrito-resumen">
+            <h2>Resumen de Compra</h2>
+            <div class="resumen-linea">
+                <span>Productos (<span class="resumen-cantidad">0 items</span>):</span>
+                <span class="resumen-subtotal">S/ 0.00</span>
+            </div>
+            <div class="resumen-linea">
+                <span>Envío:</span>
+                <span>GRATIS</span>
+            </div>
+            <div class="resumen-linea total">
+                <span>TOTAL:</span>
+                <span class="resumen-total">S/ 0.00</span>
+            </div>
+            <button class="btn-comprar" onclick="procesarCompra()">PROCESAR COMPRA</button>
+            <button class="btn-vaciar" onclick="vaciarCarrito()">Vaciar Carrito</button>
+        </div>
+    </div>
+    <script src="JS/carrito.js"></script>
+    <script src="JS/favoritos.js"></script>
+</body>
+
+</html>

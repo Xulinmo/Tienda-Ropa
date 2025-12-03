@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "verify:neon": "node scripts/verificar-neon.js",
+    "backup": "node scripts/crear-backup.js"
   },
   "keywords": [],
   "author": "",

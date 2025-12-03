@@ -15,7 +15,7 @@ app.use('/JS', express.static(path.join(__dirname, 'JS')));
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false,
+  ssl: process.env.DATABASE_URL?.includes('neon.tech') ? { rejectUnauthorized: false } : false,
 });
 
 async function query(text, params) {

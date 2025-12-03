@@ -1,6 +1,46 @@
 // API URL
 const API_URL = 'http://localhost:3000/api';
 
+// Verificar si el usuario está logueado
+function isUserLoggedIn() {
+    const userData = localStorage.getItem('user');
+    return userData !== null;
+}
+
+// Mostrar alerta para que inicie sesión
+function mostrarAlertaLogin(mensaje) {
+    // Crear modal de alerta
+    const alertaHTML = `
+        <div class="login-alert-overlay" id="loginAlertOverlay">
+            <div class="login-alert-box">
+                <div class="login-alert-icon">🔒</div>
+                <h3 class="login-alert-title">Sesión requerida</h3>
+                <p class="login-alert-message">${mensaje}</p>
+                <div class="login-alert-buttons">
+                    <button class="btn-alert-login" onclick="redirectToLogin()">Iniciar Sesión</button>
+                    <button class="btn-alert-cancel" onclick="cerrarAlertaLogin()">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.insertAdjacentHTML('beforeend', alertaHTML);
+}
+
+// Redirigir a página de inicio para login
+function redirectToLogin() {
+    cerrarAlertaLogin();
+    window.location.href = 'index.html';
+}
+
+// Cerrar alerta de login
+function cerrarAlertaLogin() {
+    const alerta = document.getElementById('loginAlertOverlay');
+    if (alerta) {
+        alerta.remove();
+    }
+}
+
 // Obtener ID del usuario actual (desde login.js si está disponible)
 function getUserId() {
     if (typeof getCurrentUserId === 'function') {
@@ -148,6 +188,12 @@ window.addEventListener('DOMContentLoaded', function() {
 
 // Agregar producto al carrito
 async function agregarAlCarrito(card, btn) {
+    // Validar que el usuario esté logueado
+    if (!isUserLoggedIn()) {
+        mostrarAlertaLogin('Debes iniciar sesión para agregar productos al carrito');
+        return;
+    }
+    
     // Buscar el data-id en varios lugares posibles
     let id = null;
     
@@ -420,6 +466,12 @@ async function vaciarCarrito() {
 
 // Función para procesar compra (opcional - puedes personalizarla)
 async function procesarCompra() {
+    // Validar que el usuario esté logueado
+    if (!isUserLoggedIn()) {
+        mostrarAlertaLogin('Debes iniciar sesión para realizar compras');
+        return;
+    }
+    
     const carrito = await obtenerCarrito();
     
     if (carrito.length === 0) {
@@ -542,10 +594,12 @@ function mostrarBoleta(data) {
                 </div>
                 <div class="boleta-footer">
                     <div class="boleta-mensaje">¡Gracias por tu compra!</div>
-                    <button class="btn-imprimir-boleta" onclick="window.print()">
-                        <i class="fa-solid fa-print"></i> Imprimir
-                    </button>
-                    <button class="btn-cerrar-boleta" onclick="cerrarBoleta()">Cerrar</button>
+                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: 15px;">
+                        <button class="btn-imprimir-boleta" onclick="window.print()">
+                            <i class="fa-solid fa-print"></i> Imprimir
+                        </button>
+                        <button class="btn-cerrar-boleta" onclick="cerrarBoleta()">Cerrar</button>
+                    </div>
                 </div>
             </div>
         </div>

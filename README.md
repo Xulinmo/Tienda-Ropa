@@ -4,10 +4,24 @@ Sistema de comercio electrónico con carrito de compras, favoritos y gestión de
 
 ## ✅ Estado: CONFIGURADO Y FUNCIONANDO
 
-- ✅ Base de datos `tienda_db` creada
+- ✅ Base de datos PostgreSQL (Local / Neon Cloud)
 - ✅ Tablas creadas (users, products, cart, favorites)
 - ✅ 90 productos cargados
 - ✅ Servidor corriendo en `http://localhost:3000`
+- ✅ **Backup completo listo para migración a Neon**: `backups/tienda_db_backup.sql`
+
+## 🌐 Migración a Neon PostgreSQL
+
+Para migrar tu base de datos a la nube con Neon, sigue la guía completa en:
+📖 [docs/MIGRACION_NEON.md](docs/MIGRACION_NEON.md)
+
+**Resumen rápido:**
+1. Crea cuenta en https://neon.tech/
+2. Obtén tu DATABASE_URL
+3. Configura `.env` con tu connection string
+4. Ejecuta `db/setup.sql` en Neon
+5. Restaura `backups/tienda_db_backup.sql`
+6. Verifica con: `node scripts/verificar-neon.js`
 
 ## Estructura del Proyecto
 

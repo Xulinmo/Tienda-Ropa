@@ -186,12 +186,15 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s;
-    margin-left: 10px;
 }
 
 .btn-imprimir-boleta:hover {
     background: #333;
     color: white;
+}
+
+.btn-imprimir-boleta i {
+    margin-right: 5px;
 }
 
 @media print {
