@@ -1,5 +1,5 @@
 // Cargar productos desde la API y agregar stock
-const PRODUCTS_API_URL = 'http://localhost:3000/api';
+const PRODUCTS_API_URL = 'https://tienda-ropa-production.up.railway.app/api';
 
 async function cargarProductosConStock() {
     try {

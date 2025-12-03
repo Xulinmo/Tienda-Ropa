@@ -1,5 +1,5 @@
 // Sistema de Login/Registro
-const API_URL = 'http://localhost:3000/api';
+const API_URL = 'https://tienda-ropa-production.up.railway.app/api';
 
 // Estado del usuario
 let currentUser = null;
