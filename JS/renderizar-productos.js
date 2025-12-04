@@ -2,7 +2,8 @@
 // Este script se usa en páginas de categorías: hombre.html, mujer.html, calzado.html, accesorios.html
 // Última actualización: 2025-12-03 - Sistema de favoritos integrado con backend
 
-const API_URL = 'https://tienda-ropa-production.up.railway.app/api';
+// Usar API_URL de otros scripts o definir si no existe
+const RENDER_API_URL = window.API_URL || 'https://tienda-ropa-production.up.railway.app/api';
 
 // Obtener ID del usuario logueado
 function getUserId() {
@@ -19,7 +20,7 @@ async function actualizarContadorFavoritos(userId) {
     if (!userId) return;
     
     try {
-        const response = await fetch(`${API_URL}/favorites?user_id=${userId}`);
+        const response = await fetch(`${RENDER_API_URL}/favorites?user_id=${userId}`);
         if (response.ok) {
             const favoritos = await response.json();
             const contador = document.querySelector('.fav-contador');
@@ -62,7 +63,7 @@ async function cargarYRenderizarProductos() {
         grid.innerHTML = '<div class="loading" style="grid-column: 1/-1; text-align: center; padding: 40px; font-size: 18px;">Cargando productos...</div>';
         
         // Obtener productos de la API
-        const response = await fetch(`${API_URL}/products`);
+        const response = await fetch(`${RENDER_API_URL}/products`);
         if (!response.ok) throw new Error('Error al cargar productos');
         
         const todosLosProductos = await response.json();
@@ -91,7 +92,7 @@ async function cargarYRenderizarProductos() {
         
         if (userId) {
             try {
-                const favResponse = await fetch(`${API_URL}/favorites?user_id=${userId}`);
+                const favResponse = await fetch(`${RENDER_API_URL}/favorites?user_id=${userId}`);
                 if (favResponse.ok) {
                     const favoritos = await favResponse.json();
                     favoritosIds = favoritos.map(f => f.id);
@@ -184,7 +185,7 @@ function crearTarjetaProducto(producto) {
             try {
                 if (isActive) {
                     // Eliminar de favoritos
-                    const response = await fetch(`${API_URL}/favorites`, {
+                    const response = await fetch(`${RENDER_API_URL}/favorites`, {
                         method: 'DELETE',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ 
@@ -199,7 +200,7 @@ function crearTarjetaProducto(producto) {
                     }
                 } else {
                     // Agregar a favoritos
-                    const response = await fetch(`${API_URL}/favorites`, {
+                    const response = await fetch(`${RENDER_API_URL}/favorites`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ 
