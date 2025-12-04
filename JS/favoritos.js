@@ -1,17 +1,35 @@
-// Obtener favoritos del localStorage
-function obtenerFavoritos() {
-    const favs = localStorage.getItem('favoritos');
-    return favs ? JSON.parse(favs) : [];
+// API URL
+const FAVORITOS_API_URL = 'https://tienda-ropa-production.up.railway.app/api';
+
+// Obtener ID del usuario logueado
+function getUserId() {
+    const userData = localStorage.getItem('user');
+    if (userData) {
+        const user = JSON.parse(userData);
+        return user.id;
+    }
+    return null;
 }
 
-// Guardar favoritos en localStorage
-function guardarFavoritos(favoritos) {
-    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+// Obtener favoritos del backend
+async function obtenerFavoritos() {
+    const userId = getUserId();
+    if (!userId) return [];
+    
+    try {
+        const response = await fetch(`${FAVORITOS_API_URL}/favorites?user_id=${userId}`);
+        if (response.ok) {
+            return await response.json();
+        }
+    } catch (err) {
+        console.error('Error al obtener favoritos:', err);
+    }
+    return [];
 }
 
 // Actualizar contador del header
-function actualizarContador() {
-    const favoritos = obtenerFavoritos();
+async function actualizarContador() {
+    const favoritos = await obtenerFavoritos();
     const contador = document.querySelector('.fav-contador');
     if (contador) {
         contador.textContent = favoritos.length;
@@ -20,66 +38,20 @@ function actualizarContador() {
 }
 
 // Cuando cargue la página
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // Marcar productos que ya son favoritos
-    const favoritos = obtenerFavoritos();
-    document.querySelectorAll('.fav-btn').forEach(btn => {
-        const id = btn.getAttribute('data-id');
-        const esFav = favoritos.find(f => f.id === id);
-        if (esFav) {
-            btn.classList.add('active');
-        }
-    });
-    
-    // Agregar evento a todos los botones de favoritos
-    document.querySelectorAll('.fav-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const card = this.closest('.product-card');
-            const id = this.getAttribute('data-id');
-            const nombre = card.querySelector('.product-name').textContent;
-            const precio = card.querySelector('.price-current').textContent;
-            const img1 = card.querySelector('.img-primary').src;
-            const img2 = card.querySelector('.img-secondary').src;
-            
-            let favoritos = obtenerFavoritos();
-            
-            // Si ya es favorito, quitarlo
-            if (this.classList.contains('active')) {
-                this.classList.remove('active');
-                favoritos = favoritos.filter(f => f.id !== id);
-                
-                // Si estamos en favoritos.html, quitar la tarjeta
-                if (window.location.href.includes('favoritos.html')) {
-                    card.style.opacity = '0';
-                    setTimeout(() => card.remove(), 300);
-                }
-            } 
-            // Si no es favorito, agregarlo
-            else {
-                this.classList.add('active');
-                favoritos.push({ id, nombre, precio, img1, img2 });
-            }
-            
-            guardarFavoritos(favoritos);
-            actualizarContador();
-        });
-    });
+document.addEventListener('DOMContentLoaded', async function() {
     
     // Si estamos en favoritos.html, cargar los productos
     if (window.location.href.includes('favoritos.html')) {
-        cargarFavoritos();
+        await cargarFavoritos();
     }
     
-    actualizarContador();
+    await actualizarContador();
 });
 
 // Cargar productos en favoritos.html
-function cargarFavoritos() {
+async function cargarFavoritos() {
     const grid = document.querySelector('.products-grid');
-    const favoritos = obtenerFavoritos();
+    const favoritos = await obtenerFavoritos();
     
     grid.innerHTML = '';
     
@@ -102,19 +74,28 @@ function cargarFavoritos() {
         card.className = 'product-card';
         card.innerHTML = `
             <div class="product-images">
-                <img class="img-primary" src="${prod.img1}" alt="${prod.nombre}">
-                <img class="img-secondary" src="${prod.img2}" alt="${prod.nombre}">
+                <img class="img-primary" src="${prod.image_url}" alt="${prod.title}">
+                <img class="img-secondary" src="${prod.image_url}" alt="${prod.title}">
                 <button class="fav-btn active" data-id="${prod.id}"></button>
             </div>
             <div class="product-info">
-                <h3 class="product-name">${prod.nombre}</h3>
+                <h3 class="product-name">${prod.title}</h3>
                 <div class="product-prices">
-                    <span class="price-current">${prod.precio}</span>
+                    <span class="price-current">S/ ${parseFloat(prod.price).toFixed(2)}</span>
                 </div>
-                <button class="btnFiltro">COMPRAR</button>
+                <button class="btnFiltro add-to-cart-btn" data-id="${prod.id}" data-title="${prod.title}" data-price="${prod.price}" data-image="${prod.image_url}">COMPRAR</button>
             </div>
         `;
         grid.appendChild(card);
+        
+        // Agregar evento al botón de comprar
+        const btnComprar = card.querySelector('.add-to-cart-btn');
+        if (btnComprar && typeof agregarAlCarrito === 'function') {
+            btnComprar.addEventListener('click', function(e) {
+                e.preventDefault();
+                agregarAlCarrito(card, btnComprar);
+            });
+        }
     });
     
     // Actualizar contador
@@ -123,29 +104,50 @@ function cargarFavoritos() {
         contador.textContent = `${favoritos.length} Producto${favoritos.length !== 1 ? 's' : ''}`;
     }
     
-    // Activar eventos en los nuevos botones
+    // Activar eventos en los botones de favoritos
     document.querySelectorAll('.fav-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
+        btn.addEventListener('click', async function(e) {
             e.preventDefault();
             const card = this.closest('.product-card');
-            const id = this.getAttribute('data-id');
-            let favoritos = obtenerFavoritos();
-            favoritos = favoritos.filter(f => f.id !== id);
-            guardarFavoritos(favoritos);
-            card.style.opacity = '0';
-            setTimeout(() => {
-                card.remove();
-                if (obtenerFavoritos().length === 0) {
-                    cargarFavoritos();
-                } else {
-                    actualizarContador();
-                    const contador = document.querySelector('.infoPS');
-                    if (contador) {
-                        const total = obtenerFavoritos().length;
-                        contador.textContent = `${total} Producto${total !== 1 ? 's' : ''}`;
-                    }
+            const productId = this.getAttribute('data-id');
+            const userId = getUserId();
+            
+            if (!userId) {
+                alert('Debes iniciar sesión');
+                return;
+            }
+            
+            try {
+                // Eliminar del backend
+                const response = await fetch(`${FAVORITOS_API_URL}/favorites`, {
+                    method: 'DELETE',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        user_id: userId, 
+                        product_id: parseInt(productId)
+                    })
+                });
+                
+                if (response.ok) {
+                    card.style.opacity = '0';
+                    setTimeout(async () => {
+                        card.remove();
+                        const favs = await obtenerFavoritos();
+                        if (favs.length === 0) {
+                            await cargarFavoritos();
+                        } else {
+                            await actualizarContador();
+                            const contador = document.querySelector('.infoPS');
+                            if (contador) {
+                                contador.textContent = `${favs.length} Producto${favs.length !== 1 ? 's' : ''}`;
+                            }
+                        }
+                    }, 300);
                 }
-            }, 300);
+            } catch (err) {
+                console.error('Error al eliminar favorito:', err);
+                alert('Error al eliminar de favoritos');
+            }
         });
     });
 }
