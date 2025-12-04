@@ -135,6 +135,63 @@ app.get('/api/favorites', async (req, res) => {
   }
 });
 
+// Agregar producto a favoritos (body: { user_id, product_id })
+app.post('/api/favorites', async (req, res) => {
+  const { user_id, product_id } = req.body;
+  
+  console.log('POST /api/favorites - Datos recibidos:', { user_id, product_id });
+  
+  if (!user_id || !product_id) {
+    return res.status(400).json({ error: 'Faltan user_id o product_id' });
+  }
+  
+  try {
+    // Verificar si ya existe en favoritos
+    const exists = await query(
+      `SELECT * FROM favorites WHERE user_id = $1 AND product_id = $2`,
+      [user_id, product_id]
+    );
+    
+    if (exists.rows.length > 0) {
+      return res.status(400).json({ error: 'Producto ya está en favoritos' });
+    }
+    
+    // Agregar a favoritos
+    await query(
+      `INSERT INTO favorites (user_id, product_id) VALUES ($1, $2)`,
+      [user_id, product_id]
+    );
+    
+    res.json({ message: 'Producto agregado a favoritos', success: true });
+  } catch (err) {
+    console.error('Error al agregar a favoritos:', err);
+    res.status(500).json({ error: 'Error al agregar a favoritos' });
+  }
+});
+
+// Eliminar producto de favoritos (body: { user_id, product_id })
+app.delete('/api/favorites', async (req, res) => {
+  const { user_id, product_id } = req.body;
+  
+  console.log('DELETE /api/favorites - Datos recibidos:', { user_id, product_id });
+  
+  if (!user_id || !product_id) {
+    return res.status(400).json({ error: 'Faltan user_id o product_id' });
+  }
+  
+  try {
+    await query(
+      `DELETE FROM favorites WHERE user_id = $1 AND product_id = $2`,
+      [user_id, product_id]
+    );
+    
+    res.json({ message: 'Producto eliminado de favoritos', success: true });
+  } catch (err) {
+    console.error('Error al eliminar de favoritos:', err);
+    res.status(500).json({ error: 'Error al eliminar de favoritos' });
+  }
+});
+
 // Obtener carrito de un usuario: /api/cart?user_id=1
 app.get('/api/cart', async (req, res) => {
   const userId = req.query.user_id;
