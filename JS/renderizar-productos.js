@@ -119,10 +119,6 @@ async function cargarYRenderizarProductos() {
         }
         
         console.log(`✅ ${productosFiltrados.length} productos de "${categoria}" cargados desde Neon PostgreSQL`);
-            contador.style.display = favoritos.length > 0 ? 'flex' : 'none';
-        }
-        
-        console.log(`✅ ${productosFiltrados.length} productos de "${categoria}" cargados desde Neon PostgreSQL`);
         
     } catch (error) {
         console.error('Error al cargar productos:', error);
